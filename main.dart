@@ -22,6 +22,35 @@ class OoruBlinkitApp extends StatelessWidget {
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+  import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+// Order place panra function
+Future<void> sendOrderToServer() async {
+  // Ungaloda Live Render Backend URL
+  final url = Uri.parse('https://ooru-blinkit.onrender.com/api/order');
+
+  try {
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        "customerName": "Ooru Customer",
+        "items": ["1 Paal Packet", "1kg Thakkali"],
+        "address": "Anjaneyar Kovil Street, Ooru",
+        "paymentMethod": "COD / Kadan"
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      print("Order Success: ${response.body}");
+    } else {
+      print("Failed to send order");
+    }
+  } catch (e) {
+    print("Error: $e");
+  }
+}
 
   @override
   Widget build(BuildContext context) {
