@@ -1,0 +1,12 @@
+{
+  "name": "ooru-blinkit-backend",
+  "version": "1.0.0",
+  "description": "Namma ooru quick commerce backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
