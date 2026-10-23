@@ -44,3 +44,8 @@ const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Ooru Blinkit Backend Server running on port ${PORT}`);
 });
+
+// Root path response (Error varamal irukka)
+app.get('/', (req, res) => {
+    res.send('Ooru Blinkit Backend Server is Running Successfully! 🛒');
+});
